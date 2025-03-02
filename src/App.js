@@ -1,4 +1,6 @@
 import { useState } from "react";
+import LandingPage from "./pages/landingPage";
+import Navbar from "./components/navbar";
 
 function App() {
   const [darkMode, setDarkMode] = useState("dark");
@@ -8,19 +10,9 @@ function App() {
   }
 
   return (
-    <div
-      className={`${
-        darkMode === "dark" ? "dark" : "light"
-      } min-h-screen flex flex-col`}
-    >
-      <div className="dark:bg-gray-900 bg-zinc-100 text-gray-900 dark:text-zinc-100 flex-auto">
-        <h1 className="font-extrabold  ">To Do List</h1>
-        <button onClick={toggleDarkMode}>
-          <span>
-            Toggle Dark Mode
-          </span>
-        </button>
-      </div>
+    <div className={`${darkMode} min-h-screen flex flex-col`}>
+      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <LandingPage className="bg-zinc-100 dark:bg-zinc-900" />
     </div>
   );
 }
